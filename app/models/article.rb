@@ -416,8 +416,14 @@ class Article < Content
     user.admin? || user_id == user.id
   end
 
+  ##########################################################
+
   def merge_with(other_article_id)    
-    other_article = Article.find_by_id(other_article_id)  
+    other_article = Article.find_by_id(other_article_id)
+    # if other_article.nil? #|| self.nil? 
+    #   return false
+    # end
+
     self.body = self.body + other_article.body  
     other_article.comments.each do |comment|
       comment.article_id = self.id
@@ -427,6 +433,7 @@ class Article < Content
     self.save
   end
 
+  ##########################################################
 
   protected
 

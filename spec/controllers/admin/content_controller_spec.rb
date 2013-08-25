@@ -659,6 +659,20 @@ describe Admin::ContentController do
       end
     end
 
+    # describe 'merge articles action' do
+
+    #   it 'should merge articles by merge action' do
+    #     #@article_1 = Factory.create(:article)
+    #     Article.stub!(:find).with("1").and_return(@article)
+    #     # @article_2 = mock(Article, :id => 100, :title => "Star Wars", :author => "George Lucas", :body => "Juhu")
+    #     fill_in "merge_with", with: "2"
+    #     post :merge, :id => @article.id
+    #     # @article_1.reload
+    #     response.should render_template('index')
+    #     response.should change(Article, :count).by(-1)
+    #   end 
+    # end
+
     describe 'destroy action can be access' do
 
       it 'should redirect when want destroy article' do

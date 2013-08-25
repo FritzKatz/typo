@@ -21,9 +21,12 @@ module NavigationHelpers
       '/accounts/login'
     when /^the all articles page$/
       '/admin/content'
-    when /^the edit article page for "(.*)"$/
-      '/admin/content/edit/' + "#{Article.find_by_title($1).id.to_int}" 
-      #edit_resource_path(Article.find_by_title($1))  
+    when /^the edit article page for the article with id "(.*)"$/
+      '/admin/content/edit/' + "#{$1}"
+      #'/admin/content/edit/' + "#{Article.find_by_title($1).id.to_int}" 
+      #edit_resource_path(Article.find_by_title($1))
+    when /^the categories page$/
+      '/admin/categories/new'  
 
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:

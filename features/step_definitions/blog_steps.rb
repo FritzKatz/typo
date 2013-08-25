@@ -22,6 +22,8 @@ And /^I am logged into the user panel$/ do
   end
 end
 
+# 
+
 And /^I should see the content of "(.*)" and "(.*)"/ do |e1, e2|
   page.should have_content("Welcome!")
   page.should have_content("Goodbye!")
@@ -44,4 +46,9 @@ Then /(I should see all articles)/ do #| rating_list |
   articleCount = Article.all.count  
   rowCount = page.all('table# tbody tr').size
   rowCount.should == movieCount
+end
+
+And /^I merge the articles with the ids "(.*)" and "(.*)"/ do |e1, e2|
+  fill_in 'merge_with', :with => e2.to_i
+  click_button "Merge"
 end
